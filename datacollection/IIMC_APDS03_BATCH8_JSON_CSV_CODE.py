@@ -31,7 +31,7 @@ def unzip_file(zipped_filename):
         # create a ZipFile Object and load the zipped contents to it
          with ZipFile(zipped_filename, 'r') as zipObj:
              # Extract all the contents of zip file in current directory        
-             zipObj.extractall()
+             zipObj.extractall('downloads')
              print("\nLOG: Successfully unzipped contents for",zipped_filename,"!")
     except:
         print("\nFAIL: Unzip failed!")
@@ -534,7 +534,7 @@ def main():
     mapping_outputfile_name = "output/CVSS_Exploit_Mapping.csv"
     
     #range of years to download
-    start_year = 2002 #earliest year available for dowload is 2002
+    start_year = 2015 #earliest year available for dowload is 2015
     end_year = 2020   #at the moment, latest year can be 2020
     
     print("\nJust for fun, we shall work our way backwards, starting from year",end_year,"to",start_year,"!!")
@@ -544,7 +544,7 @@ def main():
         print("\nWorking on year",year)
         
         #enter the filenames, urls etc   
-        json_download_filename = 'nvdcve-1.1-{}'.format(year)+'.json'
+        json_download_filename = 'downloads/nvdcve-1.1-{}'.format(year)+'.json'
         zipped_filename = 'downloads/vulnerabilities_{}'.format(year)+'.zip'
         download_from_url = 'https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-{}'.format(year)+'.json.zip'        
         output_file_name = 'output/CVSS_vulnerability_list_{}'.format(year)+'.csv'
