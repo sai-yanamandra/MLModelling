@@ -84,7 +84,7 @@ def convert_JSON_to_CSV(json_download_filename, csv_file, combined_csv, limit_do
             
             #for each of the 60 attributes of do the following
             for item in range(60):
-                print("\nLOG:","Working on attribute #",item + 1,"for Vulenrability #",each_vulnerability + 1)
+                #print("\nLOG:","Working on attribute #",item + 1,"for Vulenrability #",each_vulnerability + 1)
                 
                 i=item
                             
@@ -380,7 +380,7 @@ def convert_JSON_to_CSV(json_download_filename, csv_file, combined_csv, limit_do
         
                 #row_values_dict[new_key] = dict_data["%key_1"]            
                 
-                print("LOG: Attribute",item + 1,"for Vulnerability ID#",dict_data[key_8],"is complete!")
+                #print("LOG: Attribute",item + 1,"for Vulnerability ID#",dict_data[key_8],"is complete!")
         except:
             print("FAIL")
         try:
