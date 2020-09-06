@@ -7,8 +7,6 @@
 # Author: Sai Yanamandra, 5th Sept, 2020
 
 import pandas as pd
-import csv
-
 
 #the csv to be cleaned
 input_csv = '..\datacollection\output\CVSS_Last20_years_combined.csv'
