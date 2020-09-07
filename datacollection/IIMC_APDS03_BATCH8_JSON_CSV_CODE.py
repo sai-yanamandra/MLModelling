@@ -24,7 +24,7 @@ def download_zip_from_url(url, save_path, chunk_size=128):
     with open(save_path, 'wb') as fd:
         for chunk in r.iter_content(chunk_size=chunk_size):
             fd.write(chunk)
-    print("SUCCESS: Download of zipped file",save_path,"was a success!")
+    print("SUCCESS: Download of zipped file",save_path,"was a success! Woot with Sai!")
 
 def unzip_file(zipped_filename):    
     try:
