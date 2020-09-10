@@ -14,7 +14,7 @@ import csv
 
 def get_series(resp, class_name, ext = '',col = 0):
     soup = bs.BeautifulSoup(resp.text, 'lxml') 
-    print("The search begins")
+    print("The search begins here")
 
     #for t in soup.find_all('table',{'cellpadding':'2'}):
     for t in soup.find_all('title'):    
