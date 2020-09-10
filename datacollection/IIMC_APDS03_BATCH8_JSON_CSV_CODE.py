@@ -18,13 +18,14 @@ import os.path
 from os import path
 
 import APDS_mapping_download_code
+import APDS_vuln_product_vendor_mapping_download_code
 
 def download_zip_from_url(url, save_path, chunk_size=128):
     r = requests.get(url, stream=True)
     with open(save_path, 'wb') as fd:
         for chunk in r.iter_content(chunk_size=chunk_size):
             fd.write(chunk)
-    print("SUCCESS: Download of zipped file",save_path,"was a success! Woot with Sai!")
+    print("SUCCESS: Download of zipped file",save_path,"was a success!")
 
 def unzip_file(zipped_filename):    
     try:
@@ -43,6 +44,7 @@ def convert_JSON_to_CSV(json_download_filename, csv_file, combined_csv, limit_do
     
     #iteratively flatten the JSON file    
     dict_data = flatten(data)
+    dict_data_cve = []
     
     #these will become the column names in the CSV file    
     csv_columns_headers = ['type', 'format', 'version', 'timestamp', 'data_type', 'data_format', 'data_version', 'data_meta_ID', 'data_meta_ASSIGNER', 'problemtype_description_lang', 
@@ -386,6 +388,7 @@ def convert_JSON_to_CSV(json_download_filename, csv_file, combined_csv, limit_do
         try:
             if dict_data[key_8]:
                 dict_list.append(row_values_dict)
+                dict_data_cve.append(dict_data[key_8])
         except:
             print("ERROR: Could not find vulnerability details. Moving on.")
         print("SUCCESS: Vulnerability ID#",each_vulnerability + 1,"is complete!")
@@ -410,12 +413,24 @@ def convert_JSON_to_CSV(json_download_filename, csv_file, combined_csv, limit_do
             #writer.writerow(csv_columns_headers)
             #writer.writeheader()
             for data in dict_list:
-                writer.writerow(data)
+                writer.writerow(data)                
+                
         print("\nSUCCESS: Data loaded into CSV! Woot! Woot!")
+    
                 
     except IOError:
         print("FAIL: I/O error: The file maybe left open.")
-                    
+        
+    #fetching the vendor and product name 
+    print("Let's quickly fetch the vendor and product name")
+    
+    try:
+        print("Data Source: This contains the mapping between Vulnerability, Product and Vendor\nLet the web data scrapping begin!\n",dict_data_cve)      
+        APDS_vuln_product_vendor_mapping_download_code.get_vendor_product_mapping(dict_data_cve)
+        print("SUCCESS: The data has been scraped: Vulnerability-Vendor-Product mapping ready!")        
+    except:
+        print("ERROR: That failed. Didn't manage to download the product, vendor mapping!\n")       
+                
     #create a combined csv file    
     try:
         if not path.exists(combined_csv):
@@ -534,7 +549,7 @@ def main():
     mapping_outputfile_name = "output/CVSS_Exploit_Mapping.csv"
     
     #range of years to download
-    start_year = 2015 #earliest year available for dowload is 2015
+    start_year = 2015 #earliest year available for dowload is 2002
     end_year = 2020   #at the moment, latest year can be 2020
     
     print("\nJust for fun, we shall work our way backwards, starting from year",end_year,"to",start_year,"!!")
@@ -558,9 +573,9 @@ def main():
         
         #Convert the JSON file to CSV
         convert_JSON_to_CSV(json_download_filename, output_file_name, combined_csv, limit_download)
-        
+                    
     try:
-        print("Data Source#2: This contains the mapping between Vulnerabilities and Exploits\nLet the web data scrapping begin!\n")      
+        print("Data Source: This contains the mapping between Vulnerabilities and Exploits\nLet the web data scrapping begin!\n")      
         APDS_mapping_download_code.exploit_mapping_download()
         print("SUCCESS: The data has been scraped: Exploit-Vulnerability mapping ready!")        
     except:

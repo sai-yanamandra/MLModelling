@@ -12,22 +12,34 @@ import pickle
 import requests
 import csv
 
+import os.path
+from os import path
+
+
 def get_series(cve_id_string, resp, class_name, ext = '',col = 0):
-    soup = bs.BeautifulSoup(resp.text, 'lxml') 
-    
-    for t in soup.find_all('table',{'id':'vulnversconuttable'}):
-        table = t
-    #print("Test print Table",table)    
+    soup = bs.BeautifulSoup(resp.text, 'lxml')
+     
+    try:
+        for t in soup.find_all('table',{'id':'vulnversconuttable'}):
+            table = t
+            print("t",table)
+    except:
+        print("Couldn't find the regular table, there is something unusual here")
+        
     tickers = []
     tickers_dict = {}
+    
+    try:        
+        for row in table.findAll('tr')[1:]:
+            ticker_col1 = row.findAll('td')[col].text.strip('\n') 
+            ticker_col2 = row.findAll('td')[col+1].text.strip('\n') 
+            ticker_col3 = cve_id_string 
             
-    for row in table.findAll('tr')[1:]:
-        ticker_col1 = row.findAll('td')[col].text.strip('\n') 
-        ticker_col2 = row.findAll('td')[col+1].text.strip('\n') 
-        ticker_col3 = cve_id_string 
-      
-        tickers = ticker_col1,ticker_col2
-        tickers_dict[ticker_col3] = tickers
+            tickers = ticker_col1,ticker_col2
+            tickers_dict[ticker_col3] = tickers
+    except:
+        tickers = 'NOT AVAILABLE ON WWW.CVEDETAILS.COM','NOT AVAILABLE ON WWW.CVEDETAILS.COM'
+        tickers_dict[cve_id_string] = tickers
         
     with open("vendor_vuln_mapping.pickle","wb") as f:
         pickle.dump(tickers,f)
@@ -37,8 +49,9 @@ def get_series(cve_id_string, resp, class_name, ext = '',col = 0):
     print("FOUND: Found the product details", tickers)  
     return pd.Series(tickers_series)
 
-def fetch_contents(cve_id_string, website_link, ext, col, class_name = ''):  
+def fetch_contents(cve_id_string, website_link, ext, col, class_name = ''):
     resp = requests.get(website_link)
+    print("The response is (200- GOOD):",resp)
     #'tbldata14 bdrtpg' 'wikitable sortable'
     return get_series(cve_id_string, resp, class_name, ext, col)
 
@@ -83,9 +96,15 @@ def vendor_mapping_download(cve_id_list):
         cve_id = pd.Series(cve_id)
         vuln_vendor_prod_mapping = vuln_vendor_prod_mapping.append(get_vendor_vulnerability_mapping(cve_id_String))
         
-        with open(mapping_outputfile_name, 'w', newline='') as file:
+        if not path.exists(mapping_outputfile_name):
+             with open(mapping_outputfile_name, 'w+', newline='') as file:
+                writer = csv.writer(file)
+                print("File doesn't exist, creating file with headers")
+                writer.writerow(["CVE_ID","Vendor_Name","Product_Name"])
+        
+        with open(mapping_outputfile_name, 'a+', newline='') as file:
             writer = csv.writer(file)
-            writer.writerow(["CVE_ID","Vendor_Name","Product_Name"])
+            #writer.writerow(["CVE_ID","Vendor_Name","Product_Name"])
     
     for cve,product in vuln_vendor_prod_mapping.items():
         print("\nLOADING: Currently Working on CVE_ID",cve)
@@ -102,5 +121,7 @@ def vendor_mapping_download(cve_id_list):
         print("LOADED: Success",cve,"complete\n")
 
 #expects a series of CVE ids
-cve_id_list = {'CVE-2018-3732','CVE-2018-3752'}
-vendor_mapping_download(cve_id_list)
+def get_vendor_product_mapping(cve_id_list = {'CVE-2018-3732','CVE-2018-3752'}):
+    print("Fetching Vendor and Product details for",cve_id_list)
+    vendor_mapping_download(cve_id_list)
+    print("SUCCESS:Fetch complete! Woot! Woot!")
