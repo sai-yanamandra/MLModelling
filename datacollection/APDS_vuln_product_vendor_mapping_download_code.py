@@ -22,7 +22,7 @@ def get_series(cve_id_string, resp, class_name, ext = '',col = 0):
     try:
         for t in soup.find_all('table',{'id':'vulnversconuttable'}):
             table = t
-            print("t",table)
+            #print("t",table)
     except:
         print("Couldn't find the regular table, there is something unusual here")
         
