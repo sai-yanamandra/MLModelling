@@ -19,7 +19,7 @@ from os import path
 
 
 import DownloadMapping
-import APDS_vuln_product_vendor_mapping_download_code
+import MapProductsWithVendors
 
 
 def download_zip_from_url(url, save_path, chunk_size=128):
@@ -393,13 +393,10 @@ def convert_JSON_to_CSV(json_download_filename, csv_file, combined_csv, limit_do
                 dict_data_cve.append(dict_data[key_8])
         except:
             print("ERROR: Could not find vulnerability details. Moving on.")
-        print("SUCCESS: Vulnerability ID#",each_vulnerability + 1,"is complete!")
         
         try:
-            print("Combining")
             combined_dict_list_dict = { key:value for key,value in row_values_dict.items() if key in combined_csv_columns}       
             combined_dict_list.append(combined_dict_list_dict)
-            print("Combine complete")
         except:
             print("Combine FAILED. Moving on.")
     #create an individual csv file
@@ -428,7 +425,7 @@ def convert_JSON_to_CSV(json_download_filename, csv_file, combined_csv, limit_do
     
     try:
         print("Data Source: This contains the mapping between Vulnerability, Product and Vendor\nLet the web data scrapping begin!\n",dict_data_cve)      
-        APDS_vuln_product_vendor_mapping_download_code.get_vendor_product_mapping(dict_data_cve)
+        MapProductsWithVendors.get_vendor_product_mapping(dict_data_cve)
         print("SUCCESS: The data has been scraped: Vulnerability-Vendor-Product mapping ready!")        
     except:
         print("ERROR: That failed. Didn't manage to download the product, vendor mapping!\n")       
@@ -578,7 +575,7 @@ def main():
                     
     try:
         print("Data Source: This contains the mapping between Vulnerabilities and Exploits\nLet the web data scrapping begin!\n")      
-        APDS_mapping_download_code.exploit_mapping_download()
+        DownloadMapping.exploit_mapping_download()
         print("SUCCESS: The data has been scraped: Exploit-Vulnerability mapping ready!")        
     except:
         print("ERROR: That failed. Didn't manage to download the exploits!\n")       
