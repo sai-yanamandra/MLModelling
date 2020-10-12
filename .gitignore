@@ -127,3 +127,11 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+modeling/output/classes_new.csv
+modeling/output/classes_v2_new.csv
+modeling/output/classes_v2.csv
+modeling/output/classes.csv
+modeling/output/features_v2.csv
+modeling/output/features.csv
+datacollection/CVSS-Base.csv
+datacollection/CWE_Inputs.csv
