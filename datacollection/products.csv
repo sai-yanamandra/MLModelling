@@ -1,0 +1,51 @@
+﻿Index,Product Name,Vendor Name,Product Type,Number of Vulnerabilities,Vendor ID,Product ID,Sha
+1,Debian Linux,Debian,OS,3067,23,36,aa65d4fbefc3f7d4b9b60af598c1cfc3ddcac06f
+2,Android,Google,OS,2563,1224,19997,1bd76566e804bd0baf4aa6ef43598ed24565b5b6
+3,Linux Kernel,Linux,OS,2357,33,47,544260ec3a86a7e17f8b02b39d6342815d8d4bd5
+4,Mac Os X,Apple,OS,2212,49,156,de09c30a0682ba8df06308e35dca9068af3fceeb
+5,Ubuntu Linux,Canonical,OS,2007,4781,20550,24bd26356b517b06fda7c1d3042e78e7049790c8
+6,Firefox,Mozilla,Application,1873,452,3264,934eca7aeddb93b2d7027e7bf1f97de026e9c0e6
+7,Chrome,Google,Application,1858,1224,15031,dad84f9c3747d02e86132c2ca5dc09a296cdf556
+8,Iphone Os,Apple,OS,1655,49,15556,1efc6556e916c71709f3dc8581fc744a48152068
+9,Windows Server 2008,Microsoft,OS,1421,29,11366,30679272dc2b04c89b8f6695993a2525fe02746b
+10,Windows 7,Microsoft,OS,1283,29,17153,47d29bad4e41fa72927e93dbd6b6e2cbeefa4e07
+11,Acrobat Reader Dc,Adobe,Application,1182,53,32069,a7d0d8e1eeb85fb7ea772f3d9baadcc0acd40603
+12,Acrobat Dc,Adobe,Application,1182,53,32068,b2625417de5792ad11d5d73eb16f78473af034f5
+13,Windows 10,Microsoft,OS,1111,26,32238,41e451b72c2e412c0a1cb8cb1dcfee3d16d51c44
+14,Flash Player,Adobe,Application,1078,53,6761,ac2a72f983d2b7488412b74b424af6da7078c21a
+15,Windows Server 2012,Microsoft,OS,1050,26,23546,985a39f48c6700b5366f032ac4417ea5c1603857
+16,Enterprise Linux Desktop,Redhat,OS,1039,25,79,4d34d261b88788154c5e653e12c1b38a4ff359e4
+17,Internet Explorer,Microsoft,Application,1030,26,9900,77acc76eedf9fabdfb3d0e41a51fed72b4beb41c
+18,Safari,Apple,Application,1029,49,2935,9b0dee0523cd833429f000889c5533435974b1e6
+19,Enterprise Linux Server,Redhat,OS,979,25,24639,d9281fd1d7dae2216435b60836be21f109cc741d
+20,Windows 8.1,Microsoft,OS,978,26,26434,b2fe1f2ba19c52b1aa3751651a09dcf6acb7ff92
+21,Acrobat,Adobe,Application,949,53,921,c55a203f4d68919ba9bd24b6dfdf5761ad80fe5d
+22,Enterprise Linux Workstation,Redhat,OS,941,25,24640,3e943276385f3041c14ef6981c6249ae969c345f
+23,Thunderbird,Mozilla,Application,921,452,3678,958f47f928535f28c0e9e16b82ec2c53491ec033
+24,Opensuse,Opensuse,OS,918,8184,14195,f099bfab635313872f4a76e6eb945b54d07863b9
+25,Windows Server 2016,Microsoft,OS,889,26,34965,64feefda476353c176edd1b2bcd7a3bdc2eab939
+26,Windows Rt 8.1,Microsoft,OS,848,26,26435,d4cf6ac641ac252935edfab20f997fc9467964e8
+27,Windows Vista,Microsoft,OS,831,26,9591,cc27b7426dc9cacd1e4d266bcf2f7084e5e56b21
+28,Windows Xp,Microsoft,OS,741,26,739,96656e0273b52e8473fbf8b6371fe2ed4a0f8ae8
+29,Mysql,Oracle,Application,716,93,21801,6689a0d94f372e1e9f9d9615be91ae292aa6a065
+30,Seamonkey,Mozilla,Application,698,452,7048,7c0029118470c0525a5708d30196955f3da580ba
+31,Fedora,Fedoraproject,OS,697,6924,16334,93e89c64fed94e176fe64ce464a0f62453aa5cea
+32,Acrobat Reader,Adobe,Application,681,53,4978,1598da75c5430529fdb807542fbde7172ee86976
+33,Firefox Esr,Mozilla,Application,672,452,22101,09ed0bf38a2ea7f25cc5e0bfd74bcf212a456575
+34,Enterprise Linux,Redhat,OS,662,25,78,1ff6be42f792b7cf78e0796ffb7ecdb1ad6d7084
+35,Mac Os X Server,Apple,OS,640,49,2274,4075d61a45f9a36e3f6b592b3eece10bc0e88257
+36,IE,Microsoft,Application,631,26,124,a434d66dc6a8739f84f2cba0399cce628e509668
+37,JRE,Oracle,Application,617,93,19117,e7bd4bdaede94939bbb984bced9c264b834fc20c
+38,Edge,Microsoft,Application,615,26,32367,bcc0eb35d2aee937a239ffa8785395200bd5ebb3
+39,JDK,Oracle,Application,607,93,19116,52d5e2189c154fbfa1e3d4ba0a13fc6b00642bc4
+40,PHP,PHP,Application,604,74,128,d8a9f07b702ae6252893a7ef73f2f2812bbcbb8a
+41,Itunes,Apple,Application,601,49,4956,97ae2bf28dd9edcf59292aad46ef76565e05f0b2
+42,Leap,Opensuse,OS,595,8184,40865,5f023e58329d7f20cba99d350142b61993d0a001
+43,Wireshark,Wireshark,Application,576,4861,8292,3ae139e1b8501aade0ef5011c151d01efd000eb5
+44,Sunos,SUN,OS,569,5,5,df6b7903bfe1a1f120f27456c098367bbc5c0911
+45,Office,Microsoft,Application,546,26,320,c7a9921fcfe563930cf299fa2f09458fb1955bb4
+46,Imagemagick,Imagemagick,Application,545,1749,3034,b4231b8cb4f62dbbd8679ddb2c74e2feed369cac
+47,IOS,Cisco,OS,532,16,19,bd51a01b646bad788bdc715f12e17fa177698ba8
+48,Windows 2000,Microsoft,OS,514,26,107,00493d98c1a59bea3c25394eab5589904cf5b69b
+49,Watchos,Apple,OS,473,49,32536,c9aff089205f3a4cc4cebf4fe2aa678126e0a82d
+50,Solaris,SUN,OS,465,5,31,b27c73b4dfa233e18b5945207013c3fa1b6e6836

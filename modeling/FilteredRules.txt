@@ -1,0 +1,97 @@
+if ( cvssV3_integrityImpact_HIGH <= 0.5 ) {
+    if ( cvssV3_confidentialityImpact_HIGH <= 0.5 ) {
+        if ( cvssV3_confidentialityImpact_NONE <= 0.5 ) {
+            return [[    0.     0. 11462.]]
+        } else {
+            if ( cvssV3_availabilityImpact_HIGH <= 0.5 ) {
+                if ( cvssV3_privilegesRequired_LOW <= 0.5 ) {
+                    if ( cvssV3_userInteraction_NONE <= 0.5 ) {
+                        return [[  0.   0. 451.]]
+                    } else {
+                        if ( cvssV3_privilegesRequired_HIGH <= 0.5 ) {
+                            return [[  0. 807.   0.]]
+                        } else {
+                            return [[ 0.  0. 58.]]
+                        }
+                    }
+                } else {
+                    return [[  0.   0. 503.]]
+                }
+            } else {
+                return [[   0.    0. 7993.]]
+            }
+        }
+    } else {
+        if ( cvssV3_privilegesRequired_LOW <= 0.5 ) {
+            if ( cvssV3_userInteraction_NONE <= 0.5 ) {
+                return [[   0.    0. 1713.]]
+            } else {
+                if ( cvssV3_privilegesRequired_HIGH <= 0.5 ) {
+                    if ( cvssV3_availabilityImpact_HIGH <= 0.5 ) {
+                        return [[   0. 3565.    0.]]
+                    } else {
+                        return [[  0.   0. 209.]]
+                    }
+                } else {
+                    return [[  0.   0. 371.]]
+                }
+            }
+        } else {
+            return [[   0.    0. 2212.]]
+        }
+    }
+} else {
+    if ( cvssV3_attackVector_LOCAL <= 0.5 ) {
+        if ( cvssV3_userInteraction_NONE <= 0.5 ) {
+            if ( cvssV3_attackVector_ADJACENT_NETWORK <= 0.5 ) {
+                if ( cvssV3_attackVector_PHYSICAL <= 0.5 ) {
+                    return [[   0. 5394.    0.]]
+                } else {
+                    return [[0. 0. 9.]]
+                }
+            } else {
+                return [[ 0.  0. 34.]]
+            }
+        } else {
+            if ( cvssV3_privilegesRequired_LOW <= 0.5 ) {
+                if ( cvssV3_availabilityImpact_HIGH <= 0.5 ) {
+                    if ( cvssV3_attackVector_ADJACENT_NETWORK <= 0.5 ) {
+                        if ( cvssV3_attackVector_PHYSICAL <= 0.5 ) {
+                            return [[   0. 2131.    0.]]
+                        } else {
+                            return [[ 0.  0. 73.]]
+                        }
+                    } else {
+                        return [[ 0.  0. 79.]]
+                    }
+                } else {
+                    if ( cvssV3_privilegesRequired_HIGH <= 0.5 ) {
+                        if ( cvssV3_attackVector_ADJACENT_NETWORK <= 0.5 ) {
+                            return [[9317.    0.  220.]]
+                        } else {
+                            return [[  0.   0. 418.]]
+                        }
+                    } else {
+                        if ( cvssV3_attackVector_ADJACENT_NETWORK <= 0.5 ) {
+                            return [[  0. 872.  19.]]
+                        } else {
+                            return [[  0.   0. 125.]]
+                        }
+                    }
+                }
+            } else {
+                if ( cvssV3_attackVector_ADJACENT_NETWORK <= 0.5 ) {
+                    if ( cvssV3_attackVector_PHYSICAL <= 0.5 ) {
+                        return [[   0. 3231.    0.]]
+                    } else {
+                        return [[ 0.  0. 61.]]
+                    }
+                } else {
+                    return [[ 0.  0. 90.]]
+                }
+            }
+        }
+    } else {
+        return [[   0.    0. 8984.]]
+    }
+}
